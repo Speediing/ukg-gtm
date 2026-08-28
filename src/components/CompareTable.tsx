@@ -4,7 +4,7 @@ const ROWS: { label: string; values: string[] }[] = [
   {
     label: "What it is",
     values: [
-      "An always-on agent team with its own computers, working across your tools",
+      "A fleet of agents, each with a computer and access to approved tools",
       "General computer agent",
       "General AI assistant",
       "AI research engine",
@@ -13,7 +13,7 @@ const ROWS: { label: string; values: string[] }[] = [
   {
     label: "What starts it",
     values: [
-      "Always on — it starts without a prompt",
+      "A trigger, routine, or message",
       "You assign a task",
       "You start a chat or task",
       "You ask a question",
@@ -22,7 +22,7 @@ const ROWS: { label: string; values: string[] }[] = [
   {
     label: "What you get",
     values: [
-      "A team of agents working for you 24/7",
+      "Work in progress, source links, and a reviewable artifact",
       "A completed task or artifact",
       "An answer, analysis, or draft",
       "A sourced research answer",
@@ -33,10 +33,10 @@ const ROWS: { label: string; values: string[] }[] = [
 export function CompareTable() {
   return (
     <section id="compare" className="compare">
-      <h2>Grok Bot comparison</h2>
+      <h2>What changes with a fleet</h2>
       <p className="section-lede">
-        A full team of agents runs in the cloud for you 24/7, starting work
-        without waiting for a prompt.
+        A seller can see the chat on the left and the agent&apos;s computer on
+        the right. The work stays visible and drafts wait for approval.
       </p>
       <div className="compare-wrap">
         <table className="compare-table">

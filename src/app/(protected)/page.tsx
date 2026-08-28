@@ -1,7 +1,7 @@
 import { CompareTable } from "@/components/CompareTable";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
-import { QuoteWall } from "@/components/QuoteWall";
+import { RosterChart } from "@/components/RosterChart";
 import { SiteNav } from "@/components/SiteNav";
 import { JOBS } from "@/data/jobs";
 
@@ -12,35 +12,39 @@ export default function HomePage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="hero-watercolor-image"
-          src="/brand/watercolor-pad.png"
+          src="/brand/ukg-watercolor.svg"
           alt=""
         />
         <SiteNav />
       </div>
 
-      <div className="report">
+      <div className="report hero-paper">
         <div className="report-hero">
           <HeroTelemetry />
           <section className="hero">
             <div>
-              <p className="eyebrow">A proactive agent for every Datadog rep</p>
-              <h1>The agents that work while your reps sell.</h1>
+              <p className="eyebrow">A fleet for every UKG seller</p>
+              <h1>The work between calls keeps moving.</h1>
               <p className="hero-intro">
-                Grok Bot listens to calls, watches the inbox, and researches
-                accounts in the background. Work triggers it — not another
-                prompt.
+                Grok Bot gives each rep a fleet of agents with their own cloud
+                computers. Calls, questions, and account signals can start the
+                work. The rep reviews what leaves.
               </p>
             </div>
           </section>
 
+          <RosterChart />
+
           <section className="usecase-framing">
-            <p className="eyebrow">Three sample use cases</p>
+            <p className="eyebrow">Three places to start</p>
             <h2>
-              Grok Bot gives every seller their own fleet of always-available
-              agent teammates. Anything your sellers do today can be done
-              through Grok Bot.
+              Give the work around a deal to agents, then keep the rep in
+              control of every customer-facing action.
             </h2>
-            <p>These are three examples from millions — not the boundary.</p>
+            <p>
+              Each example starts with a real trigger and ends with an artifact
+              ready for review.
+            </p>
           </section>
 
           <div className="metric-grid">
@@ -69,24 +73,23 @@ export default function HomePage() {
 
       <div className="orbit-break" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/watercolor-orbit.png" alt="" />
+        <img src="/brand/ukg-watercolor.svg" alt="" />
       </div>
 
       <div className="report">
         <CompareTable />
-        <QuoteWall />
       </div>
 
       <footer className="site-footer">
         <div>
-          <p className="footer-title">Cursor for Datadog</p>
-          <p>Grok Bot for Datadog sales</p>
+          <p className="footer-title">Cursor for UKG</p>
+          <p>Grok Bot for UKG sales</p>
         </div>
         <address className="footer-contact">
-          <p>Datadog&apos;s existing Cursor contact</p>
-          <strong>Madeline Ingleby</strong>
-          <a href="mailto:madeline.ingleby@cursor.com">
-            madeline.ingleby@cursor.com
+          <p>UKG&apos;s Cursor account executive</p>
+          <strong>Griffin Hewitt</strong>
+          <a href="mailto:griffin.hewitt@cursor.com">
+            griffin.hewitt@cursor.com
           </a>
         </address>
       </footer>

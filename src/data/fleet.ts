@@ -7,30 +7,31 @@ export type FleetBot = {
   color: string;
   jobId?: JobId;
   mark?: string;
-  seat?: boolean;
 };
 
 export const FLEET: FleetBot[] = [
   {
-    id: "rep",
-    name: "Every sales rep",
-    blurb: "The human stays in control. Their agents keep the surrounding work moving.",
-    color: "#E8E8ED",
-    mark: "AE",
-    seat: true,
+    id: "moss",
+    name: "Moss",
+    blurb: "Keeps live call notes on its computer and prepares the follow-up.",
+    jobId: "standardize-room",
+    color: "#007f72",
+    mark: "M",
   },
   {
-    id: "inbox",
-    name: "Inbox agent",
-    blurb: "Watches procurement. Finds answers overnight before the rep opens Gmail.",
+    id: "kite",
+    name: "Kite",
+    blurb: "Checks approved product and internal sources before it drafts an answer.",
     jobId: "legal-redlines",
-    color: "#FF375F",
+    color: "#ff704d",
+    mark: "K",
   },
   {
-    id: "cross-sell",
-    name: "Outbound agent",
-    blurb: "Watches target accounts. Builds the 3-why and queues personalized drafts.",
+    id: "scout",
+    name: "Scout",
+    blurb: "Researches public sources and builds a brief with links, not guesses.",
     jobId: "attach-engine",
-    color: "#FF9500",
+    color: "#e8ff71",
+    mark: "S",
   },
 ];

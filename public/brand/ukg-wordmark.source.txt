@@ -1,0 +1,4 @@
+Official UKG wordmark:
+https://www.ukg.com/themes/custom/ukg_theme/logo.svg
+
+The site loads this asset directly from UKG so the mark stays official and unmodified.

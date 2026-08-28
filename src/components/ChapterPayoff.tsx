@@ -6,67 +6,52 @@ function OutboundPack({
 }: {
   artifact: Extract<Artifact, { kind: "outbound" }>;
 }) {
-  const contact = artifact.targets[0]?.name ?? "your buyer";
-  const firstName = contact.split(" ")[0];
-
   return (
-    <div className="leave leave-out-phone">
-      <div className="out-phone" aria-label="Sales Outbound approval chat">
-        <div className="out-phone-notch" aria-hidden />
-        <header className="out-phone-header">
-          <span className="out-phone-back" aria-hidden>
-            ‹
-          </span>
-          <span className="out-phone-agent" aria-hidden>
-            ✦
-          </span>
-          <p>
-            <strong>Sales Outbound</strong>
-            <small>{artifact.account} · drafts ready</small>
-          </p>
-          <span className="out-phone-desktop" aria-hidden>
-            ▣
-          </span>
-        </header>
-
-        <div className="out-phone-thread">
-          <article className="out-email-card">
-            <p className="out-email-label">Draft email · 1 of 10</p>
-            <p className="out-email-subject">
-              Subject · {artifact.account}&apos;s last Sev-2
-            </p>
-            <div className="out-email-copy">
-              <p>Hi {firstName},</p>
-              <p>
-                Your status page and open Staff SRE role point to the same
-                thing: on-call still stitches APM and logs to name a Sev-2.
-              </p>
-              <p>
-                I put together the 90-second version for your platform team.
-                Worth fifteen minutes next week?
-              </p>
-              <p>Sam</p>
-            </div>
-            <footer>
-              <span>Send email</span>
-              <span>Discard</span>
-            </footer>
-          </article>
-
-          <p className="out-message is-you">
-            Send the top 10 emails. They look good.
-          </p>
-          <p className="out-message is-bot">
-            Top 10 sending. The rest stay queued.
-          </p>
+    <div className="leave research-artifact">
+      <header className="research-artifact-top">
+        <div>
+          <p className="leave-kicker">Scout workspace</p>
+          <h3>{artifact.title}</h3>
         </div>
-
-        <footer className="out-phone-composer">
-          <span aria-hidden>+</span>
-          <p>Message Sales Outbound</p>
-          <span aria-hidden>◉</span>
-        </footer>
+        <span>Draft only</span>
+      </header>
+      <div className="research-artifact-grid">
+        <section>
+          <p className="leave-kicker">Linked evidence</p>
+          {artifact.evidence.map((item) => (
+            <div className="research-source" key={item.source}>
+              <strong>{item.source}</strong>
+              <span>{item.finding}</span>
+            </div>
+          ))}
+        </section>
+        <section>
+          <p className="leave-kicker">Rep check</p>
+          {artifact.hypothesis.map((item) => (
+            <div className="research-source" key={item.k}>
+              <strong>{item.k}</strong>
+              <span>{item.body}</span>
+            </div>
+          ))}
+        </section>
       </div>
+      <article className="research-draft">
+        <p className="leave-kicker">First-touch draft</p>
+        <p>
+          Hi there,
+          <br />
+          <br />
+          I pulled together a short note from the public sources linked above.
+          If the confirmed priority is on your plan, it may be useful to compare
+          notes.
+          <br />
+          <br />
+          Best,
+          <br />
+          Your UKG team
+        </p>
+        <span>Waiting for rep approval</span>
+      </article>
     </div>
   );
 }
@@ -82,7 +67,7 @@ function UpstairsMemo({
         <div>
           <p className="leave-kicker">{artifact.title}</p>
           <h3>
-            {artifact.account || "Acme"}
+            {artifact.account || "Sample account"}
             {artifact.amount ? ` · ${artifact.amount}` : ""}
           </h3>
         </div>
@@ -156,10 +141,10 @@ function BetterAnswer({
           <p className="leave-kicker">Say this</p>
           <p className="leave-win">{artifact.betterAnswer}</p>
           <p className="leave-incident" aria-hidden>
-            <span>Prometheus</span>
-            <span>Grafana</span>
-            <span>Log pile</span>
-            <b>APM + Logs</b>
+            <span>Source one</span>
+            <span>Source two</span>
+            <span>Open item</span>
+            <b>Approved answer</b>
           </p>
         </section>
       </div>

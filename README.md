@@ -1,10 +1,15 @@
-# Grok Bot for Datadog GTM
+# UKG x SpaceXAI
 
-Passworded site. Grok Bot from SpaceXAI, for Datadog GTM.
+A passworded Grok Bot leave-behind for UKG sales.
 
 ## What it is
 
-Three GTM jobs on one page. Each job has a short problem statement, an interactive Grok Bot demo, and the matching Krista Letz clips under that demo. Below that: a light index of the clips and the public Grok Bot quote wall.
+Three sales workflows on one page. Each one starts with a real work trigger,
+shows the agent chat beside its computer, and ends with an artifact for the rep
+to review.
+
+The app keeps the seeded architecture: Next.js 15.5, the `src/` App Router,
+Geist, and the vGPU hero effect.
 
 ## Run locally
 
@@ -16,16 +21,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). Default password is `land2expand` (override with `SITE_PASSWORD`).
 
-## Krista clips
+## Brand
 
-Download into `private/media/krista-clips/` from the GitHub release (served only through the passworded `/api/media/...` route):
-
-```bash
-gh release download krista-gtm-clips-720p-2026-08-26 \
-  --repo Speediing/grok-bot-quotes \
-  --dir private/media/krista-clips
-```
+The lockup loads the official UKG wordmark directly from
+`https://www.ukg.com/themes/custom/ukg_theme/logo.svg`. The SpaceXAI asset is
+stored under `public/brand/`.
 
 ## Deploy
 
-Preview only under the `jasonwiker` Vercel team, project name `datadog-cro`. Set `SITE_PASSWORD=land2expand`. Do not promote to a public production domain until Jason says so.
+Deploy under the `jasonwiker` Vercel team with
+`SITE_PASSWORD=land2expand`. The production alias is
+`ukg-grokbot.vercel.app`.
