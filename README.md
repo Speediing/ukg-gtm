@@ -23,9 +23,9 @@ Open [http://localhost:3000](http://localhost:3000). Default password is `land2e
 
 ## Brand
 
-The lockup loads the official UKG wordmark directly from
-`https://www.ukg.com/themes/custom/ukg_theme/logo.svg`. The SpaceXAI asset is
-stored under `public/brand/`.
+The lockup uses a local copy of the official UKG wordmark from
+`https://www.ukg.com/themes/custom/ukg_theme/logo.svg`. Its source URL is
+recorded beside the asset under `public/brand/`.
 
 ## Deploy
 
