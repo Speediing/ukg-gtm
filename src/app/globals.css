@@ -6233,6 +6233,11 @@ button:active:not(:focus-visible),
 }
 
 @media (max-width: 640px) {
+  .hero-watercolor {
+    height: 26rem;
+    min-height: 0;
+  }
+
   .nav-brand {
     display: none;
   }
