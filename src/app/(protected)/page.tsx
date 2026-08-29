@@ -1,6 +1,8 @@
 import { CompareTable } from "@/components/CompareTable";
+import { HeroDemo } from "@/components/HeroDemo";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
+import { QuoteWall } from "@/components/QuoteWall";
 import { RosterChart } from "@/components/RosterChart";
 import { SiteNav } from "@/components/SiteNav";
 import { JOBS } from "@/data/jobs";
@@ -21,17 +23,7 @@ export default function HomePage() {
       <div className="report hero-paper">
         <div className="report-hero">
           <HeroTelemetry />
-          <section className="hero">
-            <div>
-              <p className="eyebrow">A fleet for every UKG seller</p>
-              <h1>The work between calls keeps moving.</h1>
-              <p className="hero-intro">
-                Grok Bot gives each rep a fleet of agents with their own cloud
-                computers. Calls, questions, and account signals can start the
-                work. The rep reviews what leaves.
-              </p>
-            </div>
-          </section>
+          <HeroDemo />
 
           <RosterChart />
 
@@ -78,6 +70,7 @@ export default function HomePage() {
 
       <div className="report">
         <CompareTable />
+        <QuoteWall />
       </div>
 
       <footer className="site-footer">
