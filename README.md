@@ -19,16 +19,11 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Default password is `land2expand` (override with `SITE_PASSWORD`).
+Set `SITE_PASSWORD` in `.env.local` before starting the app.
+Open [http://localhost:3000](http://localhost:3000).
 
 ## Brand
 
 The lockup uses a local copy of the official UKG wordmark from
 `https://www.ukg.com/themes/custom/ukg_theme/logo.svg`. Its source URL is
 recorded beside the asset under `public/brand/`.
-
-## Deploy
-
-Deploy under the `jasonwiker` Vercel team with
-`SITE_PASSWORD=land2expand`. The production alias is
-`ukg-grokbot.vercel.app`.

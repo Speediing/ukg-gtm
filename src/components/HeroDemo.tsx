@@ -209,7 +209,7 @@ export function HeroDemo() {
     <section className="hero" aria-labelledby="hero-heading">
       <div className="hero-copy">
         <p className="eyebrow">A fleet for every UKG seller</p>
-        <h1 id="hero-heading">The work between calls keeps moving.</h1>
+        <h1 id="hero-heading">The agents that work while your reps sell.</h1>
         <p className="hero-intro">
           Grok Bot gives each rep a fleet of agents with their own cloud
           computers. Calls, questions, and account signals can start the work.

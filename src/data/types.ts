@@ -151,11 +151,6 @@ export type Artifact =
       body: string;
     }
   | {
-      kind: "talk-tracks";
-      title: string;
-      tracks: { seat: string; line: string }[];
-    }
-  | {
       kind: "forecast";
       title: string;
       status: string;

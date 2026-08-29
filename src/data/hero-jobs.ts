@@ -35,7 +35,7 @@ export const HERO_JOBS = [
     id: "sales-outbound",
     name: "Sales Outbound",
     icon: "outbound",
-    account: "Sample account",
+    account: "Acme",
     signal: "A new public account signal",
     work: "I checked the public source, recorded the link, and drafted a first-touch note. Product fit stays open until you review the evidence.",
     result: "Sourced UKG outreach draft ready",

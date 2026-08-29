@@ -3,7 +3,6 @@ import { HeroDemo } from "@/components/HeroDemo";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
 import { QuoteWall } from "@/components/QuoteWall";
-import { RosterChart } from "@/components/RosterChart";
 import { SiteNav } from "@/components/SiteNav";
 import { JOBS } from "@/data/jobs";
 
@@ -25,10 +24,8 @@ export default function HomePage() {
           <HeroTelemetry />
           <HeroDemo />
 
-          <RosterChart />
-
           <section className="usecase-framing">
-            <p className="eyebrow">Three places to start</p>
+            <p className="eyebrow">Three sample use cases</p>
             <h2>
               Give the work around a deal to agents, then keep the rep in
               control of every customer-facing action.

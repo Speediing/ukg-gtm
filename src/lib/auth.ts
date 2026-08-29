@@ -1,7 +1,11 @@
 export const AUTH_COOKIE = "ukg_gtm_session";
 
 export function sitePassword(): string {
-  return process.env.SITE_PASSWORD || "land2expand";
+  const password = process.env.SITE_PASSWORD;
+  if (!password) {
+    throw new Error("SITE_PASSWORD is required");
+  }
+  return password;
 }
 
 function toHex(buffer: ArrayBuffer): string {

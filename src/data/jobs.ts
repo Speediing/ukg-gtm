@@ -5,22 +5,22 @@ export const FOLLOW_UP_SLIDES: SlideCard[] = [
     n: 1,
     kicker: "Call notes",
     voice: "them",
-    title: "Confirmed points",
-    body: "Only details captured in the meeting appear in the recap.",
+    title: "Acme's workforce priorities",
+    body: "Only the workforce priorities confirmed in the meeting appear in the recap.",
   },
   {
     n: 2,
     kicker: "Review queue",
     voice: "them",
-    title: "Open questions",
-    body: "Anything without a source stays marked for follow-up.",
+    title: "UKG Dimensions questions",
+    body: "Any open Dimensions question stays marked for follow-up.",
   },
   {
     n: 3,
     kicker: "UKG follow-up",
     voice: "us",
-    title: "Suggested product path",
-    body: "The rep chooses what belongs in the next conversation.",
+    title: "UKG Pro product path",
+    body: "The rep chooses which UKG Pro details belong in the next conversation.",
   },
   {
     n: 4,
@@ -33,37 +33,37 @@ export const FOLLOW_UP_SLIDES: SlideCard[] = [
 
 export const QUESTION_REPLY: Extract<Artifact, { kind: "redlines" }> = {
   kind: "redlines",
-  title: "Customer questions",
+  title: "Acme product questions",
   paperTitle: "Review state",
-  from: "Customer thread",
+  from: "Acme customer thread",
   marks: [
     {
-      text: "Product question",
-      note: "Answer drafted from approved UKG product content. Source linked.",
+      text: "UKG Pro workforce question",
+      note: "Answer drafted from approved UKG Pro content. Source linked.",
       take: true,
     },
     {
-      text: "Account-specific question",
-      note: "Account notes checked. The draft uses confirmed context only.",
+      text: "Dimensions scheduling question",
+      note: "Acme account notes checked. The draft uses confirmed context only.",
       take: true,
     },
     {
-      text: "Open internal question",
+      text: "Payroll and HCM question",
       note: "An owner is requested. This item stays on hold.",
       take: false,
     },
   ],
   reply: {
-    to: "Customer team",
-    subject: "Follow-up to your UKG questions",
-    body: "Hi team,\n\nI pulled your questions into one note. Each answer links to the source used, and I marked the item that still needs an owner. I have not filled any gaps with guesses.\n\nOnce the open item is confirmed, this is ready for review.\n\nBest,\nYour UKG team",
+    to: "Acme team",
+    subject: "Follow-up to your UKG Pro and Dimensions questions",
+    body: "Hi team,\n\nI pulled your UKG Pro, Dimensions, payroll, and HCM questions into one note. Each answer links to the source used, and I marked the item that still needs an owner. I have not filled any gaps with guesses.\n\nOnce the open item is confirmed, this is ready for review.\n\nBest,\nYour UKG team",
   },
 };
 
 export const ACCOUNT_BRIEF: Extract<Artifact, { kind: "outbound" }> = {
   kind: "outbound",
-  title: "Sample account brief",
-  account: "Sample account",
+  title: "Acme account brief",
+  account: "Acme",
   hypothesis: [
     {
       k: "Why this account",
@@ -75,7 +75,7 @@ export const ACCOUNT_BRIEF: Extract<Artifact, { kind: "outbound" }> = {
     },
     {
       k: "Why UKG",
-      body: "Product fit stays open until the evidence supports it.",
+      body: "Workforce and HCM fit stays open until the evidence supports it.",
     },
   ],
   evidence: [
@@ -109,25 +109,25 @@ export const JOBS: CroJob[] = [
   {
     id: "standardize-room",
     number: 1,
-    title: "Build the follow-up while the call is live",
+    title: "Update decks in real time",
     trigger: "A customer call starts",
     backgroundAction: "Taking notes and preparing the follow-up",
     problem:
       "Call notes, deck edits, and the recap compete with the rep's next meeting.",
     botJob:
-      "Moss follows the call, separates confirmed points from open questions, and prepares the customer follow-up.",
+      "Grok Bot follows the call, separates confirmed points from open questions, and prepares the customer follow-up.",
     storyboard: [
       {
         when: "As the call opens",
-        label: "Moss opens the approved note template and starts listening.",
+        label: "Grok Bot opens the approved note template and starts listening.",
         scene: "call",
         visual: {
           kind: "live-call",
           title: "Customer discovery",
           people: [
             { initials: "YR", name: "Your rep" },
-            { initials: "CT", name: "Customer" },
-            { initials: "MO", name: "Moss" },
+            { initials: "AC", name: "Acme team" },
+            { initials: "GB", name: "Grok Bot" },
           ],
         },
       },
@@ -140,8 +140,8 @@ export const JOBS: CroJob[] = [
           timestamp: "Live",
           label: "Confirmed notes",
           summary:
-            "The agent keeps sourced points separate from anything that needs follow-up.",
-          signals: ["Confirmed", "Needs follow-up"],
+            "Acme's workforce priorities stay separate from open UKG Pro and Dimensions questions.",
+          signals: ["Workforce", "UKG Pro", "Dimensions"],
         },
       },
       {
@@ -151,8 +151,8 @@ export const JOBS: CroJob[] = [
         visual: {
           kind: "deck-update",
           eyebrow: "Draft only",
-          headline: "Call recap ready",
-          product: "Sources attached",
+          headline: "Acme workforce recap",
+          product: "UKG Pro and Dimensions",
           status: "Waiting for review",
         },
       },
@@ -168,34 +168,34 @@ export const JOBS: CroJob[] = [
     outcome: "A live call becomes a clean follow-up while the details are fresh.",
     clips: [],
     demo: {
-      title: "Moss",
-      subtitle: "Call notes and follow-up",
+      title: "Grok Bot",
+      subtitle: "Live deck updates",
       participants: [
         { id: "you", name: "You", role: "you" },
         {
-          id: "moss",
-          name: "Moss",
+          id: "agent",
+          name: "Grok Bot",
           role: "bot",
-          persona: "Builds a sourced follow-up from a live call",
+          persona: "Updates the Acme deck from a live call",
           color: "#007f72",
         },
       ],
       messages: [
         {
           id: "m1",
-          from: "moss",
+          from: "agent",
           kind: "routine",
-          body: "The customer call started. I opened the approved note template. Nothing leaves this workspace.",
+          body: "The Acme call started. I opened the approved note template. Nothing leaves this workspace.",
         },
         {
           id: "m2",
-          from: "moss",
+          from: "agent",
           kind: "text",
-          body: "I separated confirmed points from open questions. I will not fill a gap with a guess.",
+          body: "I separated confirmed workforce priorities from open UKG Pro and Dimensions questions. I will not fill a gap with a guess.",
         },
         {
           id: "m3",
-          from: "moss",
+          from: "agent",
           kind: "draft",
           draftLabel: "Follow-up deck",
           artifact: {
@@ -206,7 +206,7 @@ export const JOBS: CroJob[] = [
         },
         {
           id: "m4",
-          from: "moss",
+          from: "agent",
           kind: "system",
           body: "Deck and recap are ready for review. Nothing sent.",
         },
@@ -216,22 +216,22 @@ export const JOBS: CroJob[] = [
   {
     id: "legal-redlines",
     number: 2,
-    title: "Get a sourced answer without the Slack chase",
+    title: "Find product and internal answers fast",
     trigger: "A customer question lands",
     backgroundAction: "Checking approved sources and drafting the reply",
     problem:
       "A simple customer question can stall while the rep searches old threads and asks around.",
     botJob:
-      "Kite checks approved UKG product content, account notes, and internal sources. It links each answer and holds anything uncertain.",
+      "Grok Bot checks approved UKG product content, Acme account notes, and internal sources. It links each answer and holds anything uncertain.",
     storyboard: [
       {
         when: "A new thread arrives",
-        label: "Kite reads the questions and opens a source checklist.",
+        label: "Grok Bot reads the questions and opens a source checklist.",
         scene: "notes",
         visual: {
           kind: "procurement-email",
-          sender: "Customer team",
-          subject: "Follow-up questions",
+          sender: "Acme team",
+          subject: "UKG Pro and Dimensions questions",
           state: "New thread",
         },
       },
@@ -242,9 +242,9 @@ export const JOBS: CroJob[] = [
         visual: {
           kind: "answers-found",
           sources: [
-            { name: "UKG content", answer: "Source linked" },
-            { name: "Account notes", answer: "Context checked" },
-            { name: "Internal owner", answer: "Open item routed" },
+            { name: "UKG Pro", answer: "Workforce source linked" },
+            { name: "Dimensions", answer: "Scheduling source linked" },
+            { name: "Payroll and HCM", answer: "Open item routed" },
           ],
           status: "Review complete",
         },
@@ -255,8 +255,8 @@ export const JOBS: CroJob[] = [
         scene: "send",
         visual: {
           kind: "reply-ready",
-          to: "Customer team",
-          subject: "Follow-up to your UKG questions",
+          to: "Acme team",
+          subject: "Follow-up to your UKG product questions",
           status: "Ready for review",
         },
       },
@@ -272,41 +272,41 @@ export const JOBS: CroJob[] = [
       "A customer question becomes a sourced reply with no hidden guesswork.",
     clips: [],
     demo: {
-      title: "Kite",
-      subtitle: "Customer answers with sources",
+      title: "Grok Bot",
+      subtitle: "Product answers with sources",
       participants: [
         { id: "you", name: "You", role: "you" },
         {
-          id: "kite",
-          name: "Kite",
+          id: "agent",
+          name: "Grok Bot",
           role: "bot",
-          persona: "Checks sources and drafts the customer answer",
+          persona: "Checks UKG sources and drafts the Acme answer",
           color: "#ff704d",
         },
       ],
       messages: [
         {
           id: "m1",
-          from: "kite",
+          from: "agent",
           kind: "routine",
-          body: "A customer question arrived. I am checking approved product content, account notes, and the internal owner list.",
+          body: "An Acme question arrived. I am checking approved UKG Pro, Dimensions, payroll, and HCM content.",
         },
         {
           id: "m2",
-          from: "kite",
+          from: "agent",
           kind: "text",
           body: "Two items have direct sources. One still needs an owner, so I left it on hold.",
         },
         {
           id: "m3",
-          from: "kite",
+          from: "agent",
           kind: "draft",
           draftLabel: "Question review",
           artifact: QUESTION_REPLY,
         },
         {
           id: "m4",
-          from: "kite",
+          from: "agent",
           kind: "draft",
           draftLabel: "Email reply",
           artifact: {
@@ -319,7 +319,7 @@ export const JOBS: CroJob[] = [
         },
         {
           id: "m5",
-          from: "kite",
+          from: "agent",
           kind: "system",
           body: "The answer stays in drafts until you approve it.",
         },
@@ -329,21 +329,21 @@ export const JOBS: CroJob[] = [
   {
     id: "attach-engine",
     number: 3,
-    title: "Start every account with evidence",
+    title: "Pipeline generation is now easier than ever",
     trigger: "An account enters the rep's list",
     backgroundAction: "Reading public sources and building a brief",
     problem:
       "Generic outreach starts with a persona. Useful outreach starts with a current reason to talk.",
     botJob:
-      "Scout checks public sources, records the links, and leaves product fit open until the evidence supports it.",
+      "Grok Bot checks public sources, records the links, and leaves UKG product fit open until the evidence supports it.",
     storyboard: [
       {
         when: "The account enters the list",
-        label: "Scout opens public sources before it drafts a message.",
+        label: "Grok Bot opens public sources before it drafts a message.",
         scene: "inspect",
         visual: {
           kind: "account-research",
-          account: "Sample account",
+          account: "Acme",
           sources: ["Company site", "Public filings", "Careers"],
           signal: "Public sources only",
         },
@@ -357,7 +357,7 @@ export const JOBS: CroJob[] = [
           items: [
             { label: "Account", answer: "Evidence required" },
             { label: "Timing", answer: "Current source required" },
-            { label: "UKG fit", answer: "Rep review required" },
+            { label: "UKG fit", answer: "UKG Pro / Dimensions" },
           ],
         },
       },
@@ -384,34 +384,34 @@ export const JOBS: CroJob[] = [
       "A new account becomes a sourced brief, with the gaps left in plain view.",
     clips: [],
     demo: {
-      title: "Scout",
-      subtitle: "Public research and first-touch prep",
+      title: "Grok Bot",
+      subtitle: "Acme research and first-touch prep",
       participants: [
         { id: "you", name: "You", role: "you" },
         {
-          id: "scout",
-          name: "Scout",
+          id: "agent",
+          name: "Grok Bot",
           role: "bot",
-          persona: "Builds an account brief from public sources",
+          persona: "Builds the Acme brief from public sources",
           color: "#e8ff71",
         },
       ],
       messages: [
         {
           id: "m1",
-          from: "scout",
+          from: "agent",
           kind: "routine",
-          body: "A new account entered your list. I am checking public sources before I draft anything.",
+          body: "Acme entered your list. I am checking public sources before I draft anything.",
         },
         {
           id: "m2",
-          from: "scout",
+          from: "agent",
           kind: "text",
-          body: "The brief separates linked evidence from open questions. Product fit is still waiting for your review.",
+          body: "The brief separates linked evidence from open questions. UKG Pro and Dimensions fit is still waiting for your review.",
         },
         {
           id: "m3",
-          from: "scout",
+          from: "agent",
           kind: "draft",
           draftLabel: "Account brief",
           artifact: {
@@ -435,7 +435,7 @@ export const JOBS: CroJob[] = [
         },
         {
           id: "m4",
-          from: "scout",
+          from: "agent",
           kind: "draft",
           draftLabel: "Reason to reach out",
           artifact: {
@@ -449,39 +449,39 @@ export const JOBS: CroJob[] = [
         },
         {
           id: "m5",
-          from: "scout",
+          from: "agent",
           kind: "draft",
           draftLabel: "LinkedIn note",
           artifact: {
             kind: "linkedin",
             title: "LinkedIn draft",
-            to: "Contact to verify",
+            to: "Acme contact to verify",
             role: "Role to confirm",
-            body: "I pulled together a short note from the public sources linked in the brief. If the confirmed priority is on your plan, it may be useful to compare notes.",
+            body: "I pulled together a short note from Acme's public sources. If the confirmed workforce priority is on your plan, it may be useful to compare UKG Pro and Dimensions.",
           },
         },
         {
           id: "m6",
-          from: "scout",
+          from: "agent",
           kind: "draft",
           draftLabel: "Email note",
           artifact: {
             kind: "gmail",
             title: "Email draft",
-            to: "Contact to verify",
-            subject: "A short note from public sources",
-            body: "Hi there,\n\nI pulled together a short note from the public sources linked in the brief. If the confirmed priority is on your plan, it may be useful to compare notes.\n\nBest,\nYour UKG team",
+            to: "Acme contact to verify",
+            subject: "Acme workforce priorities",
+            body: "Hi there,\n\nI pulled together a short note from Acme's public sources. If the confirmed workforce priority is on your plan, it may be useful to compare UKG Pro and Dimensions.\n\nBest,\nYour UKG team",
           },
         },
         {
           id: "m7",
-          from: "scout",
+          from: "agent",
           kind: "draft",
           draftLabel: "Account page",
           artifact: {
             kind: "one-pager",
             title: ACCOUNT_BRIEF.page.headline,
-            eyebrow: "Sample account",
+            eyebrow: "Acme",
             sections: [
               {
                 heading: "Evidence",
@@ -500,7 +500,7 @@ export const JOBS: CroJob[] = [
         },
         {
           id: "m8",
-          from: "scout",
+          from: "agent",
           kind: "system",
           body: "Brief and outreach are drafts. Nothing sent.",
         },

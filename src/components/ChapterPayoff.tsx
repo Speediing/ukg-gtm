@@ -10,7 +10,7 @@ function OutboundPack({
     <div className="leave research-artifact">
       <header className="research-artifact-top">
         <div>
-          <p className="leave-kicker">Scout workspace</p>
+          <p className="leave-kicker">Grok Bot workspace</p>
           <h3>{artifact.title}</h3>
         </div>
         <span>Draft only</span>
@@ -67,7 +67,7 @@ function UpstairsMemo({
         <div>
           <p className="leave-kicker">{artifact.title}</p>
           <h3>
-            {artifact.account || "Sample account"}
+            {artifact.account || "Acme"}
             {artifact.amount ? ` · ${artifact.amount}` : ""}
           </h3>
         </div>
@@ -84,29 +84,6 @@ function UpstairsMemo({
           ))}
         </ul>
       ) : null}
-    </div>
-  );
-}
-
-function FieldPack({
-  artifact,
-}: {
-  artifact: Extract<Artifact, { kind: "talk-tracks" }>;
-}) {
-  return (
-    <div className="leave leave-pack">
-      <header className="leave-pack-top">
-        <p className="leave-kicker">Friday field pack</p>
-        <h3>{artifact.title}</h3>
-      </header>
-      <ol className="leave-cards">
-        {artifact.tracks.map((track) => (
-          <li key={track.seat}>
-            <p className="leave-seat">{track.seat}</p>
-            <p className="leave-line">{track.line}</p>
-          </li>
-        ))}
-      </ol>
     </div>
   );
 }
@@ -218,8 +195,6 @@ export function ChapterPayoff({
     body = <OutboundPack artifact={artifact} />;
   } else if (artifact?.kind === "forecast") {
     body = <UpstairsMemo artifact={artifact} />;
-  } else if (artifact?.kind === "talk-tracks") {
-    body = <FieldPack artifact={artifact} />;
   } else if (artifact?.kind === "scorecard") {
     body = <BetterAnswer artifact={artifact} />;
   }
