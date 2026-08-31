@@ -1,0 +1,6 @@
+Official UKG wordmark:
+https://www.ukg.com/themes/custom/ukg_theme/logo.svg
+
+The local SVG preserves the official paths, view box, and color. Repository
+formatting only adds whitespace. The official response body had this SHA-256:
+14a98577601c0ef8884295c838df19082c2649603bfde212e9eb84e90d5aaad4
